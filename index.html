@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDo List</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <nav class="navbar  bg-dark navbar-dark ">
+       <a class="navbar-brand " href="#">My To-Do List</a>
+     </nav>
+
+   <div class="container mt-3">
+    
+       <h4> Enter the task </h4>
+       <div class="form-group">
+        <label for="textTask">task:</label>
+        <input type="text" class="form-control" rows="5" id="textTask"></br>
+        <button type="button" class="btn btn-primary submit">Submit</button>
+      </div>
+    
+   </div>
+   <div class="container mt-5 ">
+    <input type="text" for="search" placeholder=" Search Task" class="filter float-right">
+    <h2>Your tasks </h2>
+    
+    <ul class="list-group tasks">
+    </ul>
+  </br>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
