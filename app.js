@@ -59,8 +59,8 @@ function onClickCom(e)
                 comPa.parentElement.insertBefore(badge,inxt);
                 badge.className="badge badge-pill badge-success";
                
-                const va = e.target.parentElement.previousElementSibling.innerHTML;
-                console.log(va);
+                const contentElement = e.target.parentElement.previousElementSibling.innerHTML;
+                
                 let task;
                 if(localStorage.getItem('task') === null)
                  {
@@ -72,15 +72,19 @@ function onClickCom(e)
 
 
                 }   
-
-                task.forEach(function(tasks){
-       
-                  if(va === tasks){
-                    tasks += `<span class="badge badge-pill badge-success">completed</span>`;
-                 }
+//use map for cases where element manipulation is required
+                let newTask = task.map(function(tasks, index, task){
                 
+                  if(contentElement=== tasks){
+                    tasks += ` <span class="badge badge-pill badge-success">completed</span>`;
+                    
+                 }
+                 
+                 return tasks;
                 })
-                localStorage.setItem('task',JSON.stringify(task));
+
+               
+                localStorage.setItem('task',JSON.stringify(newTask));
                 e.target.remove();
             }
          
