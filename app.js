@@ -60,7 +60,7 @@ function onClickCom(e)
                 badge.className="badge badge-pill badge-success";
                
                 const contentElement = e.target.parentElement.previousElementSibling.innerHTML;
-                
+                let c = e.target.parentElement.previousElementSibling;
                 let task;
                 if(localStorage.getItem('task') === null)
                  {
@@ -76,7 +76,9 @@ function onClickCom(e)
                 let newTask = task.map(function(tasks, index, task){
                 
                   if(contentElement=== tasks){
-                    tasks += ` <span class="badge badge-pill badge-success">completed</span>`;
+                    tasks += ` <span class="badge badge-pill badge-success">completed</span>
+                                
+                    `;
                     
                  }
                  
@@ -140,13 +142,21 @@ function displayContent(){
     }
     taskTemp.innerHTML="";
     task.forEach(function(tasks){
+        let  completedbut;
+        if(tasks.search(`<span class="badge badge-pill badge-success">completed</span>`) === -1){
+            
+            completedbut =`<button type="button" class="btn btn-sm btn-outline-success com">Completed</button>`;
+        }
+        else{
+            completedbut = "";
+        }
         let proto=`
    
         <li class="list-group-item">
       
               <span  class="taskText">${tasks}</span>
                   <div class="btn-group float-right">
-                      <button type="button" class="btn btn-sm btn-outline-success com">Completed</button>
+                      ${completedbut}
                       <button type="button" class="btn btn-sm btn-outline-danger delete">Delete</button>
                   </div>
               
